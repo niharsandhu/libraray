@@ -1,6 +1,5 @@
 const express = require('express');
-const router = express.Router();   
-//folllows mvc patttern model view controller 
+const router = express.Router();
 const resources = require('../models/resourceModel');
 
 // GET - Get all resources
