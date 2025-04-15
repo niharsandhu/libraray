@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library Management API</title>
+    <style>
+      body {
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .section {
+        margin-bottom: 20px;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Library Management API</h1>
+
+      <div class="section">
+        <h2>Books</h2>
+        <div id="resources"></div>
+      </div>
+
+      <div class="section">
+        <h2>Users</h2>
+        <div id="users"></div>
+      </div>
+
+      <div class="section">
+        <h2>Borrowed Books</h2>
+        <div id="borrowed-books"></div>
+      </div>
+    </div>
+
+    <script>
+      async function fetchAndDisplay(endpoint, elementId) {
+        const response = await fetch(`/api/${endpoint}`);
+        const data = await response.json();
+        document.getElementById(elementId).innerHTML = `<pre>${JSON.stringify(
+          data,
+          null,
+          2
+        )}</pre>`;
+      }
+
+      function updateData() {
+        fetchAndDisplay("resources", "resources");
+        fetchAndDisplay("users", "users");
+        fetchAndDisplay("borrowed-books", "borrowed-books");
+      }
+
+      // Update data every 2 seconds
+      updateData();
+      setInterval(updateData, 2000);
+    </script>
+  </body>
+</html>
