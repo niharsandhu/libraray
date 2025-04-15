@@ -73,7 +73,7 @@ export default function UserDashboard() {
   useEffect(() => {
     const fetchBorrowedBooks = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/borrowed-books/books")
+        const res = await fetch("https://libraray-oomo.onrender.com/api/borrowed-books/books")
         if (!res.ok) throw new Error("Failed to fetch")
         const data = await res.json()
         setBorrowedBooks(data)
