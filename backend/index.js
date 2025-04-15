@@ -18,7 +18,7 @@ const errorHandler = require('./middlewares/errorHandler');
 // Middleware
 app.use(helmet());
 const corsOptions = {
-  origin: 'http://localhost:3001',
+  origin: 'https://libraray.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 };
 
